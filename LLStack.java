@@ -22,13 +22,17 @@ public class LLStack {
         // Constructor with no parameters for inner class
         public Node() {
             // to do
+            data = null;
             // to do
+            next = null;
         }
 
         // Parametrized constructor for inner class
         public Node (Object newData, Node nextLink) {
             // to do: Data part of Node is an Object
+            data = newData;
             // to do: Link to next node is a type Node
+            next = nextLink;
         }
     }
       
@@ -37,6 +41,9 @@ public class LLStack {
         // to do 
 		// NOTE: the logic here could be implemented in a single line,
 		// but not required to be a one liner.
+
+            head = new Node(itemData, head);
+
     }
        
     // Removes the head node and returns the data Object being 
@@ -44,16 +51,37 @@ public class LLStack {
     // Returns null if the list is empty.
     public Object deleteHead() {
         // to do
+        if (head.next != null) {
+            Node n = head;
+            head = head.next;
+            return n;
+        }
+        return null;
     }
       
     // Returns the size of linked list by traversing the list
     public int size() {
 		// to do
+        int s = 0;
+        Node next = head;
+        while (next != null){
+            s++;
+            next = next.next;
+        }
+        return s;
     }
     
     // Finds if there is match for the given object
     public boolean contains(Object item) {
         // to do
+        Node curr = head;
+        while (curr != null){
+            if (curr.data == item){
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
     }
       
     // Finds the first node containing the target item, and returns a
@@ -93,10 +121,13 @@ public class LLStack {
       
     public boolean isEmpty() {
         // to do
+        return (head.next == null);
     }
       
     public void clear() {
         // to do
+        head = null;
+
     }
     // For two lists to be equal they must contain the same data items in
     // the same order. The equals method of T is used to compare data items.

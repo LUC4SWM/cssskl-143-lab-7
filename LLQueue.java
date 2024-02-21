@@ -8,18 +8,20 @@ public class LLQueue {
     // This is an inner class specifically utilized for LLStack class,
     // thus no setter or getters are needed
     private class Node {
-        private Object data;
-        private Node next;
+        private Object data = null;
+        private Node next = null;
 
         // Constructor with no parameters for inner class
         public Node() {
-           
+
         }
 
         // Parametrized constructor for inner class
         public Node(Object newData, Node nextLink) {
             // to do: Data part of Node is an Object
+            data = newData;
             // to do: Link to next node is a type Node
+            next = nextLink;
         }
     }
     
