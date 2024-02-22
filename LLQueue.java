@@ -30,32 +30,57 @@ public class LLQueue {
 
     public LLQueue() {
         // to do
+
     }
     
     // offer(enqueue) adds the object at the back of the queue
     public void offer(Object o) {
         // to do
+        Node n = new Node(o, null);
+        back =  n;
     }
     
     // poll(dequeue): retrieves and removes the head of this queue, 
     // or returns null if this queue is empty.
     public Object poll() {
      // to do
+        if (isEmpty()){
+            return null;
+        }
+        Node ret = front;
+        front = front.next;
+        return ret;
     }
     
     // Returns the size of linked list by traversing the list
     public int size() {
         // to do
+        Node ptr = front;
+        int s = 0;
+        while (ptr != null){
+            s++;
+        }
+        return s;
     }
     // peek: Retrieves, but does not remove, the head of this queue, 
     // or returns null if this queue is empty.
     public Object peek() {
         // to do
+        if (isEmpty()){
+            return null;
+        }
+        return front;
     } 
     
     //
     public boolean isEmpty() {
         // to do
+        if (front == null || front.next == null){
+            return true;
+        } else{
+            return false;
+        }
+
     } 
     
     // For two lists to be equal they must contain the same data items in
