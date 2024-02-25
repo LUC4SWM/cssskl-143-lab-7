@@ -11,6 +11,7 @@ public class LLStack {
     // Constructor with no parameters for outer class
     public LLStack() {
         // to do
+        head = null;
     }
       
     // This is an inner class specifically utilized for LLStack class,
@@ -51,10 +52,10 @@ public class LLStack {
     // Returns null if the list is empty.
     public Object deleteHead() {
         // to do
-        if (head.next != null) {
+        if (head != null) {
             Node n = head;
             head = head.next;
-            return n;
+            return n.data;
         }
         return null;
     }
@@ -121,7 +122,7 @@ public class LLStack {
       
     public boolean isEmpty() {
         // to do
-        return (head.next == null);
+        return (head == null);
     }
       
     public void clear() {
